@@ -8,6 +8,9 @@ if !A_IsAdmin {
 ; Keeps script permanently running
 Persistent
 
+; Disable Caps Lock key
+SetCapsLockState "AlwaysOff"
+
 ; Ensures that there is only a single instance of this script running.
 #SingleInstance Force
 
@@ -25,7 +28,7 @@ return
 ;============================== Save Reload / Quick Stop ==============================
 If WinActive("ahk_group saveReload") {
     ; Use Control+S to save your script and reload it at the same time.
-    ~CapsLock & s:: {
+    CapsLock & s:: {
         TrayTip("Reloading updated script", A_ScriptName)
         SetTimer("RemoveTrayTip", 1500)
         Sleep(1750)
@@ -40,11 +43,13 @@ If WinActive("ahk_group saveReload") {
     return
 
     ; Hard exit that just closes the script
-    ^Esc:: {
-        ExitApp()
+    CapsLock:: {
+        if (A_TimeSincePriorHotkey < 400 && A_PriorHotkey = "CapsLock") {
+            ExitApp()
+        }
+        Return
     }
 }
-
 
 ;============================== Main Script ==============================
 
@@ -52,9 +57,6 @@ If WinActive("ahk_group saveReload") {
 ; Global hotkeys
 ; Global hotstrings
 ; etc...
-
-; Disable Caps Lock key
-SetCapsLockState "AlwaysOff"
 
 ;============================== Program 1 ==============================
 ; Evertything between here and the next #IfWinActive will ONLY work in someProgram.exe
