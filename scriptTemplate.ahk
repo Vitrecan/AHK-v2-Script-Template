@@ -59,9 +59,8 @@ SetCapsLockState "AlwaysOff"
 ;============================== Program 1 ==============================
 ; Evertything between here and the next #IfWinActive will ONLY work in someProgram.exe
 ; This is called being "context sensitive"
-; #IfWinActive, ahk_exe someProgram.exe
+; if WinActive("ahk_exe someProgram.exe") {}
 
-; #IfWinActive
 ;============================== ini Section ==============================
 ; Do not remove /* or */ from this section. Only modify if you're
 ; storing values to this file that need to be permanantly saved.
