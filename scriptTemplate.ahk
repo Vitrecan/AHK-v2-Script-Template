@@ -1,6 +1,7 @@
 ;============================== Start Auto-Execution Section ==============================
 ; Always run as admin
-if !A_IsAdmin {
+if !A_IsAdmin
+{
     Run "*RunAs", A_ScriptFullPath
     ExitApp
 }
@@ -26,9 +27,11 @@ GroupAdd("saveReload", A_ScriptName)
 return
 
 ;============================== Save Reload / Quick Stop ==============================
-If WinActive("ahk_group saveReload") {
+If WinActive("ahk_group saveReload")
+{
     ; Use Control+S to save your script and reload it at the same time.
-    CapsLock & s:: {
+    CapsLock & s::
+    {
         TrayTip("Reloading updated script", A_ScriptName)
         SetTimer("RemoveTrayTip", 1500)
         Sleep(1750)
@@ -43,8 +46,10 @@ If WinActive("ahk_group saveReload") {
     return
 
     ; Hard exit that just closes the script
-    CapsLock:: {
-        if (A_TimeSincePriorHotkey < 400 && A_PriorHotkey = "CapsLock") {
+    CapsLock::
+    {
+        if (A_TimeSincePriorHotkey < 400 && A_PriorHotkey = "CapsLock")
+        {
             ExitApp()
         }
         Return
