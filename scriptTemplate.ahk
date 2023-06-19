@@ -25,7 +25,7 @@ return
 ;============================== Save Reload / Quick Stop ==============================
 If WinActive("ahk_group saveReload") {
     ; Use Control+S to save your script and reload it at the same time.
-    ~^s:: {
+    ~CapsLock & s:: {
         TrayTip("Reloading updated script", A_ScriptName)
         SetTimer("RemoveTrayTip", 1500)
         Sleep(1750)
