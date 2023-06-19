@@ -53,12 +53,13 @@ If WinActive("ahk_group saveReload") {
 ; Global hotstrings
 ; etc...
 
+; Disable Caps Lock key
+SetCapsLockState "AlwaysOff"
+
 ;============================== Program 1 ==============================
 ; Evertything between here and the next #IfWinActive will ONLY work in someProgram.exe
 ; This is called being "context sensitive"
 ; #IfWinActive, ahk_exe someProgram.exe
-
-
 
 ; #IfWinActive
 ;============================== ini Section ==============================
