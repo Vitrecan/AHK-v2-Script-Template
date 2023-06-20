@@ -13,6 +13,10 @@ This is an AutoHotkey (AHK) script that includes several useful features for man
 
 To use this script, you will need to have AutoHotkey installed on your system. Once installed, simply run the script by double-clicking on it or by right-clicking on it and selecting "Run Script".
 
+## Acknowledgments
+
+This script is based on work by GroggyOtter. The original script can be found here: https://pastebin.com/mMxi8KEQ.
+
 ## License
 
 This script is released under the [MIT License](https://opensource.org/licenses/MIT).
